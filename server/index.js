@@ -5,6 +5,7 @@ const express = require('express'),
       app = express();
 
 const {PORT_NUM, CONNECTION_STR, SECRET_SESH} = process.env;
+const {register, login, logOut} = require('./controller/auth');
 
 //MIDDLEWARE
 app.use(express.json())
@@ -29,3 +30,9 @@ massive({
     console.log('Connected to DB')
     app.listen(PORT_NUM, () => console.log(`Listening on ${PORT_NUM}`))
 });
+
+//Auth
+
+app.post('/auth/login', login);
+app.post('/auth/register', register);
+app.get('/auth/logout', logOut);
