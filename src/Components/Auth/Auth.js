@@ -1,22 +1,32 @@
 import React,{ useState } from 'react';
+import { useDispatch } from 'react-redux';
 import axios from 'axios';
+import { setUser } from '../../redux/reducer';
 
 
-const Auth = () => {
-    const [userName, setUserName] = useState(''),
-            [passWord, setPassWord] = useState('');
+const Auth = (props) => {
+   
+    const [username, setUsername] = useState(''),
+            [password, setPassword] = useState('');
+
+            let dispatch = useDispatch();
 
     const login = () => {
-        axios.post('/api/post',{userName, passWord})
+        console.log('login', username, password)
+        axios.post('/auth/login',{username, password}).then( res => {
+            dispatch(setUser(res.data))
+        })
+        props.history.push('/dasboard')
     }        
 
-    return(
+    return( 
         <section>
             AUTH
             <p>Username:</p>
-            <input onChange={e => setUserName(e.target.value)}/>
+            <input onChange={e => setUsername(e.target.value)}/>
             <p>Password:</p>
-            <input onChange={e => setPassWord(e.target.value)}/>
+            <input onChange={e => setPassword(e.target.value)}/>
+            <button onClick={login}>Login</button>
         </section>
     )
 }

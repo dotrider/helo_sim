@@ -8,6 +8,7 @@ const SET_USER = 'SET_USER'
 const USER_LOGOUT = 'USER_LOGOUT';
 
 export const setUser = (obj) => {
+    console.log('action', obj)
     return{
         type: SET_USER,
         payload: obj
@@ -15,7 +16,8 @@ export const setUser = (obj) => {
 }
 
 
-export const userLogout = () => {
+export const logout = () => {
+    console.log('hit')
     return{
         type: USER_LOGOUT,
         payload: {isLoggin:false}
@@ -25,6 +27,7 @@ export const userLogout = () => {
 
 export default function reducer(state = initialState, action){
     const {type, payload} = action;
+    console.log('reducer', action)
     switch(type){
         case SET_USER:
             return {...state, user:{ ...payload, isLoggin: true },}

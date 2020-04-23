@@ -29,7 +29,7 @@ module.exports = {
 
         const [foundUser] = await db.auth.check_user(username);
         if(!foundUser){
-            return res.statu(404).send('Username or Password does not exist');
+            return res.status(404).send('Username or Password does not exist');
         }
 
         const authorized = await bcrypt.compareSync(password, foundUser.password);
