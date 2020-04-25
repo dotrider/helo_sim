@@ -16,9 +16,14 @@ console.log(post)
 
 const mappedPost = post.map(pst => {
 return <Link to={`/post/${pst.post_id}`}>
-            <div className='infoContainer'>
-                <h2>{pst.title}</h2>
-                <p>{pst.username}</p>
+            <div key={pst.post_id} className='infoContainer'>
+          
+                    <h2>{pst.title}</h2>
+                    <div id='profile'>
+                    <p>By: {pst.username}</p>
+                    <img id='pic' src={pst.profile_pic}/>
+                    </div>
+           
             </div>
         </Link> 
     });
