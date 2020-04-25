@@ -1,6 +1,7 @@
 import React from 'react';
 import Nav from './Components/Nav/Nav';
 import router from './routes';
+import './reset.css';
 import './App.css';
 
 function App() {

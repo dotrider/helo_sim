@@ -2,13 +2,15 @@ import React,{ useState } from 'react';
 import { useDispatch } from 'react-redux';
 import axios from 'axios';
 import { setUser } from '../../redux/reducer';
+import './Auth.css'
 
 
 const Auth = (props) => {
    
     const [username, setUsername] = useState(''),
             [password, setPassword] = useState(''),
-            [toggle, setToggle] = useState(false)
+            [toggle, setToggle] = useState(false),
+            [isLogin, setIsLogin] = useState(false)
 
             let dispatch = useDispatch();
 
@@ -16,8 +18,8 @@ const Auth = (props) => {
         console.log('login', username, password)
         axios.post('/auth/login',{username, password}).then( res => {
             dispatch(setUser(res.data))
-        })
-        props.history.push('/dasboard')
+            props.history.push('/dashboard')
+        }).catch(() => setIsLogin(true))
     }        
 
 
@@ -25,30 +27,39 @@ const Auth = (props) => {
         console.log('login', username, password)
         axios.post('/auth/register',{username, password}).then( res => {
             dispatch(setUser(res.data))
-        })
-        props.history.push('/dasboard')
+            props.history.push('/dashboard')
+        }).catch(() => alert('User already'))
     }
 
     const handleToggle = () => {
         setToggle(!toggle)
     }
+
+    
     return( 
-        <section>
-            AUTH
-            <div>
-                <p>Username:</p>
-                <input onChange={e => setUsername(e.target.value)}/>
-                <p>Password:</p>
-                <input onChange={e => setPassword(e.target.value)}/>
-                    {!toggle?
+        <section className='auth'>
+            <div className='login'>
+                <div id='loginInfo'>
                     <div>
-                    <button onClick={login}>Login</button> <span onClick={handleToggle}>Register?</span>
+                        <span>Username: </span>
+                        <input onChange={e => setUsername(e.target.value)}/>
+                    </div>
+                    <div>
+                        <span>Password: </span>
+                        <input onChange={e => setPassword(e.target.value)}/>
+                    </div>
+
+                    {!toggle?
+                    <div className='loginBtn'>
+                    <span onClick={login}>Login</span> <span onClick={handleToggle}>Register?</span>
                     </div>
                     :
-                    <div>
-                    <button onClick={register}>Register</button> <span onClick={handleToggle}>Login?</span>
+                    <div className='loginBtn'>
+                    <span onClick={register}>Register</span> <span onClick={handleToggle}>Login?</span>
                     </div>
                     }
+                    {isLogin? <p>Incorrect Username or Password</p> : null }
+                </div>
             </div>
         </section>
     )

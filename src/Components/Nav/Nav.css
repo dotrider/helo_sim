@@ -1,0 +1,9 @@
+
+#menu{
+    /* list-style-type: none; */
+    width: 15vw;
+    position: fixed;
+    height: 100vh;
+    background-image: linear-gradient(to right, #FF71A6, #FF9771);
+    box-shadow: 0 0 10px 10px rgba(73, 69, 69, 0.249);
+}

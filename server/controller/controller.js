@@ -10,5 +10,18 @@ module.exports = {
         db.add_post([title, img, content, user_id]).then(post => {
             res.status(200).json(post)
         })
-    }
+    },
+
+    getPost: (req, res) => {
+        const db = req.app.get('db');
+
+        if(req.params.id){
+            db.get_post(req.params.id).then(post => {
+                res.status(200).json(post);
+            })
+        }else {
+        db.get_all_post().then(post => {
+            res.status(200).json(post)
+        })
+    }}
 }
