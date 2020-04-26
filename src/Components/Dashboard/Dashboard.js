@@ -3,14 +3,14 @@ import './Dashboard.css';
 import axios from 'axios';
 import { Link } from 'react-router-dom'
 
-const Dashboard = () => {
+const Dashboard = (props) => {
     const [post, setPost] = useState([])
 
 useEffect(() => {
     axios.get('/api/post').then(res => {
         setPost(res.data);
     })
-}, [])
+}, [props])
 
 console.log(post)
 

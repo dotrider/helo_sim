@@ -13,7 +13,19 @@
 }
 
 #postForm > h2 {
-    font-size: 2rem;
+    font-size: 3rem;
     color: #FF9771;
+    font-weight: 700;
+    padding: 20px;
+}
+
+#postInfo {
+    width: 250px;
+    height: 100px;
+    margin: 0 auto;
+    box-shadow: 0 2px 2px 2px rgba(73, 69, 69, 0.249);
+}
+
+#username {
     font-weight: 700;
 }

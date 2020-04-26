@@ -40,8 +40,9 @@
 .loginBtn > span {
     background-color: gray;
     border-radius: 2px;
-    width: 60px;
+    width: 70px;
     padding: 5px;
+    cursor: pointer;
 }
 
 .loginBtn > span:active {

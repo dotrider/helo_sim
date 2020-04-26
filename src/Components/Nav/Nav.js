@@ -22,9 +22,14 @@ console.log('nav', props)
         {(props.location.pathname === '/')? null
         :
         (<div id='menu'>
-        <Link to='/dashboard'>Home</Link>
-        <Link to='/new'>New Post</Link>
-        <Link to = '/'><button onClick={logOut}>Logout</button></Link>
+        <div className='menuBtns'>
+             <Link to='/dashboard'><span className='bt'>Home</span></Link>
+             <Link to='/new'><span className='bt'>New Post</span></Link>
+       
+        <div className='menuBtns'>
+            <Link to = '/'><span className='bt' onClick={logOut}>Logout</span></Link>
+        </div>
+         </div>
         </div>)
         }
         </section>

@@ -1,11 +1,9 @@
 
 .dash {
-    background-color: #F2F2F2;
-    /* height: 100vh; */
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 20px 20px 20px 100px;
+    padding: 20px 20px 20px 100px;    
 }
 
 #preview{
@@ -28,6 +26,9 @@
 
 .infoContainer > h2 {
     font-size: 2rem;
+    color: #FF9771;
+    text-align: left;
+    
 }
 
 #profile {

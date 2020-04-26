@@ -18,9 +18,15 @@ useEffect(() => {
         <section className='post'>
             <div id='postForm'>
                 <h2>{title}</h2>
-                <p>{content}</p>
-                <p>{username}</p>
-                <img src={img}/>
+                <div id='username'>
+                    <p>Posted by: {username}</p>
+                </div>
+                <div id='postInfo'>
+                    <p>{content}</p>
+                </div>
+                <div>
+                    <img src={img}/>
+                </div>
             </div>
         </section>
     )

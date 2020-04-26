@@ -10,15 +10,57 @@
     width: 40vw;
     background-color: #FFFFFF;
     box-shadow: 0 2px 2px 2px rgba(73, 69, 69, 0.249);
-    height: 450px;
+    height: 500px;
     width: 350px;
 }
 
 #postForm > div {
-    padding: 20px;
+    padding: 10px;
 }
 
 
 #img, img {
     height: 100px;
+}
+
+#postBtn {
+    background-color: gray;
+    border-radius: 2px;
+    width: 60px;
+    padding: 5px;
+    color: white;
+    cursor: pointer;
+}
+
+#postBtn:active{
+    box-shadow: 0 2px rgb(254, 125, 215);
+    transform: translateY(1px);
+}
+
+.title {
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+
+textarea {
+    width: 250px;
+    height: 80px;
+}
+
+.title > p {
+    padding: 5px;
+}
+
+.title > input {
+    border-radius: 2px;
+    width: 200px;
+    height: 20px;
+}
+
+#postForm > h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #FF9771;
+    text-align: left;
+    padding: 10px;
 }
