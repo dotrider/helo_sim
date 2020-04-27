@@ -12,6 +12,18 @@ module.exports = {
         })
     },
 
+    getSearch: (req, res) => {
+        const db = req.app.get('db');
+        let {search} = req.query;
+        let sea = `%${search}%`
+        console.log('HITTTTTTTTTT')
+        db.search_post({sea}).then(post => {
+        res.status(200).send(post);
+        })
+        
+    
+    },
+
     getPost: (req, res) => {
         const db = req.app.get('db');
 

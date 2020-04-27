@@ -32,7 +32,7 @@ const createPost = () => {
                 <p>Content: </p>
                 <textarea value={content} name='content' onChange={e => setContent(e.target.value)}/>
                 </div>
-                <span id='postBtn' onClick={() => createPost()}>Post</span>
+                <span className='postBtn' onClick={() => createPost()}>Post</span>
             </div>
         </section>
     )
