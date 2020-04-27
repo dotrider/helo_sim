@@ -7,7 +7,7 @@ import {withRouter} from 'react-router-dom';
 import './Nav.css';
 
 const Nav = (props) => {
-console.log('nav', props)
+// console.log('nav', props)
     let dispatch = useDispatch();
 
     const logOut = () => {

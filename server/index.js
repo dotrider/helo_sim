@@ -5,7 +5,7 @@ const express = require('express'),
       app = express();
 
 const {PORT_NUM, CONNECTION_STR, SECRET_SESH} = process.env;
-const {register, login, logOut} = require('./controller/auth');
+const {register, login, logOut, userSession} = require('./controller/auth');
 const {addPost, getPost} = require('./controller/controller');
 
 //MIDDLEWARE
@@ -36,6 +36,7 @@ massive({
 app.post('/auth/login', login);
 app.post('/auth/register', register);
 app.get('/auth/logout', logOut);
+app.get('/auth/userSession', userSession);
 
 //Endpoints
 app.post('/api/post', addPost);

@@ -49,4 +49,13 @@ module.exports = {
         req.session.destroy();
         res.sendStatus(200);
     },
+
+    userSession: (req, res) => {
+        console.log('user', req.session.user)
+        if(req.session.user){
+            res.status(200).send(req.session.user)
+        }else{
+            res.sendStatus(404)
+        }
+    }
 }

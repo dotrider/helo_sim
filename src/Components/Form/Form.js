@@ -23,7 +23,7 @@ const createPost = () => {
                 </div>
                 <div className='title' >
                 <div id ='img'>
-                    <img src={img}/>
+                    <img alt={img} src={img}/>
                 </div>
                 <p>Image URL: </p>
                 <input value={img} name='img' onChange={e => setImg(e.target.value)}/>
@@ -33,7 +33,6 @@ const createPost = () => {
                 <textarea value={content} name='content' onChange={e => setContent(e.target.value)}/>
                 </div>
                 <span id='postBtn' onClick={() => createPost()}>Post</span>
-                {/* <input value={} name='' onChange={}/> */}
             </div>
         </section>
     )

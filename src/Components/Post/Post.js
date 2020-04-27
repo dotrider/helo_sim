@@ -11,7 +11,7 @@ useEffect(() => {
     axios.get(`/api/post/${props.match.params.id}`).then( res => {
         setPost(res.data[0])
     })
-},[])
+},[props.match.params.id])
 
     const {title, content, img, username} = post
     return(
@@ -25,7 +25,7 @@ useEffect(() => {
                     <p>{content}</p>
                 </div>
                 <div>
-                    <img src={img}/>
+                    <img alt={img} src={img}/>
                 </div>
             </div>
         </section>
