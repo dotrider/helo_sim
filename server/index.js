@@ -41,4 +41,4 @@ app.get('/auth/userSession', userSession);
 //Endpoints
 app.post('/api/post', addPost);
 app.get('/api/post/:id?', getPost);
-app.get('/api/search/?search=', getSearch);
+app.get('/api/search/:search', getSearch);

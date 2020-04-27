@@ -7,7 +7,7 @@ import { uSession } from '../../redux/reducer'
 
 const Dashboard = (props) => {
     const [post, setPost] = useState([])
-    // const [search, setSearch] = useState('')
+    const [search, setSearch] = useState('')
 
     const dispatch = useDispatch();
 
@@ -24,12 +24,12 @@ useEffect(() => {
 
 console.log('dash', post)
 
-// const getSearch = () => {
-//     console.log('front', search)
-//     axios.get(`/api/search/${search}`).then(res => {
-//         setPost(res.data)
-//     })
-// }
+const getSearch = () => {
+    console.log('front', search)
+    axios.get(`/api/search/${search}`).then(res => {
+        setPost(res.data)
+    })
+}
 
 const mappedPost = post.map(pst => {
 return <Link key={pst.post_id} to={`/post/${pst.post_id}`}>
@@ -47,10 +47,10 @@ return <Link key={pst.post_id} to={`/post/${pst.post_id}`}>
 
     return(
         <section className='dash'>
-            {/* <div id='search'>
+            <div id='search'>
                 <input value={search} name='search' onChange={e => setSearch(e.target.value)} />
                 <span onClick={() => getSearch()} className='postBtn'>Search</span>
-            </div> */}
+            </div>
             <div id='preview'>
                 {mappedPost}
             </div>
