@@ -25,10 +25,14 @@ const Auth = (props) => {
 
     const register = () => {
         console.log('login', username, password)
+        if(username && password){
         axios.post('/auth/register',{username, password}).then( res => {
             dispatch(setUser(res.data))
             props.history.push('/dashboard')
         }).catch(() => alert('User already'))
+    }else {
+        alert('Please Register or Login')
+    }
     }
 
     const handleToggle = () => {
@@ -42,11 +46,11 @@ const Auth = (props) => {
                 <div id='loginInfo'>
                     <div>
                         <span>Username: </span>
-                        <input onChange={e => setUsername(e.target.value)}/>
+                        <input required onChange={e => setUsername(e.target.value)} />
                     </div>
                     <div>
                         <span>Password: </span>
-                        <input onChange={e => setPassword(e.target.value)}/>
+                        <input required onChange={e => setPassword(e.target.value)} />
                     </div>
 
                     {!toggle?

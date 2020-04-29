@@ -16,10 +16,14 @@ module.exports = {
         const db = req.app.get('db');
         let {search} = req.params;
         search = `%${search}%`
-        console.log('HITTTTTTTTTT', req.params)
+        if(search){
+        // console.log('HITTTTTTTTTT', req.params)
         db.search_post(search).then(post => {
         res.status(200).send(post);
         })  
+        }else{
+            res.sendStatus(404)
+        }
     },
 
     getPost: (req, res) => {

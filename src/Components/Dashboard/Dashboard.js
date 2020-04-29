@@ -20,15 +20,24 @@ useEffect(() => {
            props.history.push('/')
         })
 
-}, [dispatch, props.history])
+}, [search])
 
 console.log('dash', post)
 
 const getSearch = () => {
     console.log('front', search)
+    if(search){
     axios.get(`/api/search/${search}`).then(res => {
         setPost(res.data)
     })
+}else{
+    alert('Search is empty')
+}
+}
+
+const resetSearch = () => {
+    setSearch('')
+    
 }
 
 const mappedPost = post.map(pst => {
@@ -48,8 +57,9 @@ return <Link key={pst.post_id} to={`/post/${pst.post_id}`}>
     return(
         <section className='dash'>
             <div id='search'>
-                <input value={search} name='search' onChange={e => setSearch(e.target.value)} />
+                <input value={search} name='search' onChange={e => setSearch(e.target.value)} required />
                 <span onClick={() => getSearch()} className='postBtn'>Search</span>
+                <span onClick={() => resetSearch()} className='postBtn'>Reset</span>
             </div>
             <div id='preview'>
                 {mappedPost}
