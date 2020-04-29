@@ -15,7 +15,7 @@ const Auth = (props) => {
             let dispatch = useDispatch();
 
     const login = () => {
-        console.log('login', username, password)
+        // console.log('login', username, password)
         axios.post('/auth/login',{username, password}).then( res => {
             dispatch(setUser(res.data))
             props.history.push('/dashboard')
@@ -24,9 +24,12 @@ const Auth = (props) => {
 
 
     const register = () => {
-        console.log('login', username, password)
+        // console.log('register', username, password)
+        //Generates a profile pic for every user
+        let profile_pic = `https://robohash.org/${username}.png`
+    
         if(username && password){
-        axios.post('/auth/register',{username, password}).then( res => {
+        axios.post('/auth/register',{username, password, profile_pic}).then( res => {
             dispatch(setUser(res.data))
             props.history.push('/dashboard')
         }).catch(() => alert('User already'))

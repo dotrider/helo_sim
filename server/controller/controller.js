@@ -37,5 +37,14 @@ module.exports = {
         db.get_all_post().then(post => {
             res.status(200).json(post)
         })
-    }}
+    }},
+
+    deletePost: (req, res) => {
+        db = req.app.get('db');
+        const {id} = req.params;
+
+        db.delete_post(id).then(post => {
+            res.status(200).json(post)
+        });
+    }
 }

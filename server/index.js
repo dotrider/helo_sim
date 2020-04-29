@@ -6,7 +6,7 @@ const express = require('express'),
 
 const {PORT_NUM, CONNECTION_STR, SECRET_SESH} = process.env;
 const {register, login, logOut, userSession} = require('./controller/auth');
-const {addPost, getPost, getSearch} = require('./controller/controller');
+const {addPost, getPost, getSearch, deletePost} = require('./controller/controller');
 
 //MIDDLEWARE
 app.use(express.json())
@@ -42,3 +42,4 @@ app.get('/auth/userSession', userSession);
 app.post('/api/post', addPost);
 app.get('/api/post/:id?', getPost);
 app.get('/api/search/:search', getSearch);
+app.delete('/api/post/:id', deletePost);
